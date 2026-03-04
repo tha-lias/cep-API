@@ -1,0 +1,19 @@
+{
+  "name": "cep-api",
+  "version": "1.0.0",
+  "description": "Pipeline de consumo de APIs com processamento de dados e resiliência",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.0.2",
+    "jest": "^30.2.0"
+  }
+}
