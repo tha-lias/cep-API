@@ -15,11 +15,11 @@ npm start
 node index.js --top=50 --concurrency=3 --timeoutMs=10000
 ```
 
-| Parâmetro       | Default | Descrição                              |
-|-----------------|---------|----------------------------------------|
-| `--top`         | 20      | Quantidade de posts (maior ID)         |
+| Parâmetro       | Default | Descrição                                |
+| --------------- | ------- | ---------------------------------------- |
+| `--top`         | 20      | Quantidade de posts (maior ID)           |
 | `--concurrency` | 5       | Máximo de chamadas simultâneas ao ViaCEP |
-| `--timeoutMs`   | 5000    | Timeout por requisição HTTP (ms)       |
+| `--timeoutMs`   | 5000    | Timeout por requisição HTTP (ms)         |
 
 ## Como testar
 
