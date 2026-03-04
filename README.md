@@ -43,12 +43,13 @@ Após a execução, os arquivos são gerados na pasta `output/`:
 
 ## Decisões técnicas
 
-- **Sem dependências de produção**: O projeto usa apenas `fetch` nativo do Node.js (v18+) e módulos built-in (`fs`, `path`). Isso mantém o projeto leve e sem necessidade de libs externas para HTTP.
-- **Parsing de CLI manual**: Os argumentos são parseados diretamente de `process.argv`, sem libs como yargs ou commander, mantendo a simplicidade.
-- **Retry com backoff exponencial**: A função `withRetry` detecta erros transitórios (429, 5xx, timeout) e retenta com delays crescentes (1s, 2s, 4s). Erros não transitórios (ex: 404) são propagados imediatamente.
-- **Limite de concorrência**: A função `limitConcurrency` controla quantas chamadas ao ViaCEP rodam em paralelo, evitando sobrecarregar a API.
-- **Cache em memória**: Um `Map` armazena resultados do ViaCEP durante a execução. Se dois posts são do mesmo autor (mesmo CEP), a API é chamada apenas uma vez.
-- **Fallback gracioso**: Se o ViaCEP falhar para um CEP, `city` e `state` ficam como `null` e o pipeline continua normalmente.
+- **Sem dependências de produção** — Usa `fetch` nativo (Node 18+) e módulos built-in (`fs`, `path`).
+- **Parsing de CLI manual** — `process.argv` direto, sem libs externas (`yargs`, `commander`), pois são apenas 3 argumentos.
+- **Retry com backoff exponencial** — Retenta erros transitórios (429, 5xx, timeout) com delays crescentes (1s, 2s, 4s). Erros como 404 são propagados imediatamente.
+- **Limite de concorrência** — Máximo de N chamadas simultâneas ao ViaCEP, evitando sobrecarregar a API.
+- **Cache em memória** — `Map` que armazena resultados do ViaCEP por CEP. Mesmo autor em múltiplos posts gera apenas uma chamada.
+- **Fallback gracioso** — Se o ViaCEP falhar, `city` e `state` ficam `null` e o pipeline continua.
+
 
 ## Estrutura do projeto
 
